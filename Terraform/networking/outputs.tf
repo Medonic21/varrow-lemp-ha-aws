@@ -1,29 +1,35 @@
-
-output varrow_vpc {
-value = aws_vpc.varrow_vpc.id
+output "vpc_id" {
+  value = module.vpc.vpc_id
 }
 
-output Public_Subnet_1{
-  value = aws_subnet.Public_Subnet_1.id
+output "public_subnet_1" {
+  value = module.vpc.public_subnets[0]
 }
 
-output Public_Subnet_2 {
-  value = aws_subnet.Public_Subnet_2.id
+output "public_subnet_2" {
+  value = module.vpc.public_subnets[1]
 }
 
-output Private_Subnet_1 {
-  value = aws_subnet.Private_Subnet_1.id
+output "private_subnet_1" {
+  value = module.vpc.private_subnets[0]
 }
 
-output Private_Subnet_2 {
-  value = aws_subnet.Private_Subnet_2.id
+output "private_subnet_2" {
+  value = module.vpc.private_subnets[1]
 }
 
-output intra_Subnet_1 {
-  value = aws_subnet.intra_Subnet_1.id
+output "intra_subnet_1" {
+  value = module.vpc.database_subnets[0]
 }
 
-output intra_Subnet_2 {
-  value = aws_subnet.intra_Subnet_2.id
+output "intra_subnet_2" {
+  value = module.vpc.database_subnets[1]
 }
 
+output "igw"{
+  value = module.vpc.igw_id
+}
+
+output "ngw" {
+  value = module.vpc.natgw_ids
+}
